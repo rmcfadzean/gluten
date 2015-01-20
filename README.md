@@ -29,3 +29,8 @@ herkou config:add KEY=VALUE
 Push to heroku
 
 ```git push heroku master && heroku scale bot=1```
+
+
+# TODO
+Tidy up
+Rework plugins & Plugin module to make redis & http clients more native and gem including
