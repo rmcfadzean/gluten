@@ -3,6 +3,7 @@ GEM
   specs:
     cinch (2.2.3)
     dotenv (1.0.2)
+    redis (3.2.0)
 
 PLATFORMS
   ruby
@@ -10,3 +11,4 @@ PLATFORMS
 DEPENDENCIES
   cinch
   dotenv
+  redis

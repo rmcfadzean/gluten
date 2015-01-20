@@ -3,7 +3,10 @@ module Gluten
     attr :bot
 
     def initialize
-      @bot = Cinch::Bot.new do
+
+      Plugins.load_all
+
+      $bot = Cinch::Bot.new do
         configure do |c|
           c.server = Config.server[:host]
           c.port = Config.server[:port]
@@ -12,12 +15,14 @@ module Gluten
           c.nicks = Config.bot[:nicks].split(',')
           c.user = Config.bot[:user]
           c.realname = Config.bot[:realname]
+
+          config.plugins.plugins = Config.const_plugins
         end
       end
     end
 
     def start
-      @bot.start
+      $bot.start
     end
 
   end

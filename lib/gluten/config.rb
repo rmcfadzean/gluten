@@ -20,6 +20,17 @@ module Gluten
           user: ENV['BOT_USER'] || BOT_DEFAULTS[:user]
         }
       end
+
+      def plugins
+        ENV['BOT_PLUGINS'].split(',')
+      end
+
+      def const_plugins
+        self.plugins.map{|plugin|
+          camelized = plugin.split('_').map!{|s|s.capitalize}.join
+          Kernel.const_get("Gluten::Plugins::#{camelized}")
+        }
+      end
     end
   end
 end
