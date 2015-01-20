@@ -1,7 +1,12 @@
-require 'gluten/config'
-require 'gluten/bot'
-require 'gluten/plugin'
-require 'redis'
+plugin_path = File.expand_path('../../plugins',__FILE__)
+$LOAD_PATH.unshift(plugin_path) unless $LOAD_PATH.include?(plugin_path)
 
-module Gluten
-end
+Bundler.require(:default)
+Dotenv.load
+
+require 'gluten/version'
+require 'gluten/config'
+require 'gluten/cache'
+require 'gluten/bot'
+require 'gluten/http_client'
+require 'gluten/plugin'

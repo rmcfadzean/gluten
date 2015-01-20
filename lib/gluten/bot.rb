@@ -16,9 +16,11 @@ module Gluten
           c.user = Config.bot[:user]
           c.realname = Config.bot[:realname]
 
-          config.plugins.plugins = Config.const_plugins
+          c.plugins.plugins = Config.const_plugins
+
         end
       end
+      $bot.loggers.level = :info
     end
 
     def start
